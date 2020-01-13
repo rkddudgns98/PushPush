@@ -59,1006 +59,140 @@ void SetConsoleSize(int _col, int _lines)
 	system(setText);
 }
 
-//열쇠가 서로 겹치지 않음 - 하.. 해당열쇠에 대하여 다른열쇠와 겹칠경우 좌표이동인데 일일이 다 구현했음 머리가 나쁨
-void OverLapingLeftZero(int count)
-{
-	for (int i = 1; i < count; i++)
-	{
-		if (g_stKey[0].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[0].y == g_stKey[i].y)
-			{
-				g_stKey[0].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftOne(int count)
-{
-	for (int i = 0; i < 1; i++)
-	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[1].y == g_stKey[i].y)
-			{
-				g_stKey[1].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 2; i < count; i++)
-	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[1].y == g_stKey[i].y)
-			{
-				g_stKey[1].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftTwo(int count)
-{
-	for (int i = 0; i < 2; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 3; i < count; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftThree(int count)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 4; i < count; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftFour(int count)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 5; i < count; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftFive(int count)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 6; i < count; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftSix(int count)
-{
-	for (int i = 0; i < 6; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 7; i < count; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftSeven(int count)
-{
-	for (int i = 0; i < 7; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 8; i < count; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftEight(int count)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-	for (int i = 9; i < count; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
-void OverLapingLeftNine(int count)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		if (g_stKey[9].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[9].y == g_stKey[i].y)
-			{
-				g_stKey[9].x++;
-				g_stPlayer.x++;
-			}
-		}
-	}
-}
 
-void OverLapingRightZero(int count)
+//열쇠가 서로 겹치지 않게
+void KeyOverLapingLeftBase(int a,int clearpoint)
 {
-	for (int i = 1; i < count; i++)
+	for (int i = 0; i < a; i++)
 	{
-		if (g_stKey[0].x == g_stKey[i].x)		//겹치지 않게
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
 		{
-			if (g_stKey[0].y == g_stKey[i].y)
+			if (g_stKey[a].y == g_stKey[i].y)
 			{
-				g_stKey[0].x--;
+				g_stKey[a].x++;
+				g_stPlayer.x++;
+			}
+		}
+	}
+	for (int i = a+1; i < clearpoint; i++)
+	{
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
+		{
+			if (g_stKey[a].y == g_stKey[i].y)
+			{
+				g_stKey[a].x++;
+				g_stPlayer.x++;
+			}
+		}
+	}
+}
+void KeyOverLapingRightBase(int a,int count)
+{
+	for (int i = 0; i < a; i++)
+	{
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
+		{
+			if (g_stKey[a].y == g_stKey[i].y)
+			{
+				g_stKey[a].x--;
+				g_stPlayer.x--;
+			}
+		}
+	}
+	for (int i = a+1; i < count; i++)
+	{
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
+		{
+			if (g_stKey[a].y == g_stKey[i].y)
+			{
+				g_stKey[a].x--;
 				g_stPlayer.x--;
 			}
 		}
 	}
 }
-void OverLapingRightOne(int count)
+void KeyOverLapingDownBase(int a,int count)
 {
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < a; i++)
 	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
 		{
-			if (g_stKey[1].y == g_stKey[i].y)
+			if (g_stKey[a].y == g_stKey[i].y)
 			{
-				g_stKey[1].x--;
-				g_stPlayer.x--;
+				g_stKey[a].y--;
+				g_stPlayer.y--;
 			}
 		}
 	}
-	for (int i = 2; i < count; i++)
+	for (int i = a+1; i < count; i++)
 	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
 		{
-			if (g_stKey[1].y == g_stKey[i].y)
+			if (g_stKey[a].y == g_stKey[i].y)
 			{
-				g_stKey[1].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightTwo(int count)
-{
-	for (int i = 0; i < 2; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 3; i < count; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightThree(int count)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 4; i < count; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightFour(int count)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 5; i < count; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightFive(int count)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 6; i < count; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightSix(int count)
-{
-	for (int i = 0; i < 6; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 7; i < count; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightSeven(int count)
-{
-	for (int i = 0; i < 7; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 8; i < count; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightEight(int count)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-	for (int i = 9; i < count; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-void OverLapingRightNine(int count)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		if (g_stKey[9].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[9].y == g_stKey[i].y)
-			{
-				g_stKey[9].x--;
-				g_stPlayer.x--;
-			}
-		}
-	}
-}
-
-void OverLapingDownZero(int count)
-{
-	for (int i = 1; i < count; i++)
-	{
-		if (g_stKey[0].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[0].y == g_stKey[i].y)
-			{
-				g_stKey[0].y--;
+				g_stKey[a].y--;
 				g_stPlayer.y--;
 			}
 		}
 	}
 }
-void OverLapingDownOne(int count)
+void KeyOverLapingUpBase(int a, int count)
 {
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < a; i++)
 	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
 		{
-			if (g_stKey[1].y == g_stKey[i].y)
+			if (g_stKey[a].y == g_stKey[i].y)
 			{
-				g_stKey[1].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 2; i < count; i++)
-	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[1].y == g_stKey[i].y)
-			{
-				g_stKey[1].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownTwo(int count)
-{
-	for (int i = 0; i < 2; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 3; i < count; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownThree(int count)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 4; i < count; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownFour(int count)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 5; i < count; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownFive(int count)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 6; i < count; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownSix(int count)
-{
-	for (int i = 0; i < 6; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 7; i < count; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownSeven(int count)
-{
-	for (int i = 0; i < 7; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 8; i < count; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownEight(int count)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-	for (int i = 9; i < count; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-void OverLapingDownNine(int count)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		if (g_stKey[9].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[9].y == g_stKey[i].y)
-			{
-				g_stKey[9].y--;
-				g_stPlayer.y--;
-			}
-		}
-	}
-}
-
-void OverLapingUpZero(int count)
-{
-	for (int i = 1; i < count; i++)
-	{
-		if (g_stKey[0].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[0].y == g_stKey[i].y)
-			{
-				g_stKey[0].y++;
+				g_stKey[a].y++;
 				g_stPlayer.y++;
 			}
 		}
 	}
-}
-void OverLapingUpOne(int count)
-{
-	for (int i = 0; i < 1; i++)
+	for (int i = a+1; i < count; i++)
 	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
+		if (g_stKey[a].x == g_stKey[i].x)		//겹치지 않게
 		{
-			if (g_stKey[1].y == g_stKey[i].y)
+			if (g_stKey[a].y == g_stKey[i].y)
 			{
-				g_stKey[1].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 2; i < count; i++)
-	{
-		if (g_stKey[1].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[1].y == g_stKey[i].y)
-			{
-				g_stKey[1].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpTwo(int count)
-{
-	for (int i = 0; i < 2; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 3; i < count; i++)
-	{
-		if (g_stKey[2].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[2].y == g_stKey[i].y)
-			{
-				g_stKey[2].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpThree(int count)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 4; i < count; i++)
-	{
-		if (g_stKey[3].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[3].y == g_stKey[i].y)
-			{
-				g_stKey[3].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpFour(int count)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 5; i < count; i++)
-	{
-		if (g_stKey[4].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[4].y == g_stKey[i].y)
-			{
-				g_stKey[4].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpFive(int count)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 6; i < count; i++)
-	{
-		if (g_stKey[5].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[5].y == g_stKey[i].y)
-			{
-				g_stKey[5].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpSix(int count)
-{
-	for (int i = 0; i < 6; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 7; i < count; i++)
-	{
-		if (g_stKey[6].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[6].y == g_stKey[i].y)
-			{
-				g_stKey[6].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpSeven(int count)
-{
-	for (int i = 0; i < 7; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 8; i < count; i++)
-	{
-		if (g_stKey[7].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[7].y == g_stKey[i].y)
-			{
-				g_stKey[7].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpEight(int count)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-	for (int i = 9; i < count; i++)
-	{
-		if (g_stKey[8].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[8].y == g_stKey[i].y)
-			{
-				g_stKey[8].y++;
-				g_stPlayer.y++;
-			}
-		}
-	}
-}
-void OverLapingUpNine(int count)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		if (g_stKey[9].x == g_stKey[i].x)		//겹치지 않게
-		{
-			if (g_stKey[9].y == g_stKey[i].y)
-			{
-				g_stKey[9].y++;
+				g_stKey[a].y++;
 				g_stPlayer.y++;
 			}
 		}
 	}
 }
 
-void OverLapingLeft(int clearpoint)
+void KeyOverLapingLeft(int clearpoint)
 {
-	OverLapingLeftZero(clearpoint);
-	OverLapingLeftOne(clearpoint);
-	if (clearpoint > 2)
-	OverLapingLeftTwo(clearpoint);
-	if (clearpoint > 3)
-	OverLapingLeftThree(clearpoint);
-	if (clearpoint > 4)
-	OverLapingLeftFour(clearpoint);
-	if (clearpoint > 5)
-	OverLapingLeftFive(clearpoint);
-	if (clearpoint > 6)
-	OverLapingLeftSix(clearpoint);
-	if (clearpoint > 7)
-	OverLapingLeftSeven(clearpoint);
-	if (clearpoint > 8)
-	OverLapingLeftEight(clearpoint);
-	if (clearpoint > 9)
-	OverLapingLeftNine(clearpoint);
+	for (int i = 0; i < 10; i++)
+	{
+		if (clearpoint > i)
+			KeyOverLapingLeftBase(i, clearpoint);
+	}
 }
-void OverLapingRight(int clearpoint)
+void KeyOverLapingRight(int clearpoint)
 {
-	OverLapingRightZero(clearpoint);
-	OverLapingRightOne(clearpoint);
-	if (clearpoint > 2)
-		OverLapingRightTwo(clearpoint);
-	if (clearpoint > 3)
-		OverLapingRightThree(clearpoint);
-	if (clearpoint > 4)
-		OverLapingRightFour(clearpoint);
-	if (clearpoint > 5)
-		OverLapingRightFive(clearpoint);
-	if (clearpoint > 6)
-		OverLapingRightSix(clearpoint);
-	if (clearpoint > 7)
-		OverLapingRightSeven(clearpoint);
-	if (clearpoint > 8)
-		OverLapingRightEight(clearpoint);
-	if (clearpoint > 9)
-		OverLapingRightNine(clearpoint);
+	for (int i = 0; i < 10; i++)
+	{
+		if (clearpoint > i)
+			KeyOverLapingRightBase(i, clearpoint);
+	}
 }
-void OverLapingUp(int clearpoint)
+void KeyOverLapingUp(int clearpoint)
 {
-	OverLapingUpZero(clearpoint);
-	OverLapingUpOne(clearpoint);
-	if (clearpoint > 2)
-		OverLapingUpTwo(clearpoint);
-	if (clearpoint > 3)
-		OverLapingUpThree(clearpoint);
-	if (clearpoint > 4)
-		OverLapingUpFour(clearpoint);
-	if (clearpoint > 5)
-		OverLapingUpFive(clearpoint);
-	if (clearpoint > 6)
-		OverLapingUpSix(clearpoint);
-	if (clearpoint > 7)
-		OverLapingUpSeven(clearpoint);
-	if (clearpoint > 8)
-		OverLapingUpEight(clearpoint);
-	if (clearpoint > 9)
-		OverLapingUpNine(clearpoint);
+	for (int i = 0; i < 10; i++)
+	{
+		if (clearpoint > i)
+			KeyOverLapingUpBase(i, clearpoint);
+	}
 }
-void OverLapingDown(int clearpoint)
+void KeyOverLapingDown(int clearpoint)
 {
-	OverLapingDownZero(clearpoint);
-	OverLapingDownOne(clearpoint);
-	if (clearpoint > 2)
-		OverLapingDownTwo(clearpoint);
-	if (clearpoint > 3)
-		OverLapingDownThree(clearpoint);
-	if (clearpoint > 4)
-		OverLapingDownFour(clearpoint);
-	if (clearpoint > 5)
-		OverLapingDownFive(clearpoint);
-	if (clearpoint > 6)
-		OverLapingDownSix(clearpoint);
-	if (clearpoint > 7)
-		OverLapingDownSeven(clearpoint);
-	if (clearpoint > 8)
-		OverLapingDownEight(clearpoint);
-	if (clearpoint > 9)
-		OverLapingDownNine(clearpoint);
+	for (int i = 0; i < 10; i++)
+	{
+		if (clearpoint > i)
+			KeyOverLapingDownBase(i, clearpoint);
+	}
 }
 
 //시작메뉴
@@ -2875,7 +2009,7 @@ void InputProcessor()
 			}
 		}
 
-		OverLapingLeft(g_stPlayer.clearpoint);
+		KeyOverLapingLeft(g_stPlayer.clearpoint);
 	}
 
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) //오른쪽방향키
@@ -2901,7 +2035,7 @@ void InputProcessor()
 				}
 			}
 		}
-		OverLapingRight(g_stPlayer.clearpoint);
+		KeyOverLapingRight(g_stPlayer.clearpoint);
 	}
 
 	if (GetAsyncKeyState(VK_UP) & 0x8000) //위쪽방향키
@@ -2927,7 +2061,7 @@ void InputProcessor()
 				}
 			}
 		}
-		OverLapingUp(g_stPlayer.clearpoint);
+		KeyOverLapingUp(g_stPlayer.clearpoint);
 	}
 
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000) //아래쪽방향키
@@ -2953,7 +2087,7 @@ void InputProcessor()
 				}
 			}
 		}
-		OverLapingDown(g_stPlayer.clearpoint);
+		KeyOverLapingDown(g_stPlayer.clearpoint);
 	}
 
 	//스테이지 재시작

@@ -213,6 +213,35 @@ void StartMenu()
 		scanf("%d", &stagephase);
 		stagephase--;
 
+		//잘못된 스테이지 입력시 1라운드부터 시작할지 게임을 종료할지
+		if (stagephase >= STAGE_MAX || stagephase < 0)
+		{
+			while (1)
+			{
+				system("cls");
+
+				GotoXY(2, 2);
+				printf("#%d stage is the last", STAGE_MAX);
+
+				GotoXY(2, 4);
+				printf("#Start Stage 1? Y/N");
+
+				if (GetAsyncKeyState('Y') & 0x8000)
+				{
+					stagephase = 0;
+					break;
+				}
+
+				if (GetAsyncKeyState('N') & 0x8000)
+				{
+					stagephase = -1;
+					break;
+				}
+
+				Sleep(50);
+			}
+		}
+
 		//스테이지 설정이 종료되었으면 게임시작
 		if (stagephase >= 0)
 		{
@@ -220,7 +249,14 @@ void StartMenu()
 			gamestate = true;
 			break;
 		}
-
+		//스테이지 설정이 취소되었으면 게임종료
+		if (stagephase < 0)
+		{
+			//게임종료
+			gamestate = false;
+			break;
+		}
+		
 		Sleep(50);
 	}
 }
@@ -2030,8 +2066,15 @@ void Ending()
 		printf("#Ending");
 		GotoXY(2, 4);
 		printf("#Push Push Game");
-		GotoXY(2, 6);
-		printf("#You Clear Stage %d", stagephase);
+		if (stagephase <= 0) {
+			GotoXY(2, 6);
+			printf("#Please Restart Push Push");
+
+		}
+		if (stagephase > 0) {
+			GotoXY(2, 6);
+			printf("#You Clear Stage %d", stagephase);
+		}
 		GotoXY(2, 8);
 		printf("\n");
 		Sleep(50);

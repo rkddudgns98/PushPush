@@ -220,6 +220,7 @@ void StartMenu()
 			gamestate = true;
 			break;
 		}
+
 		Sleep(50);
 	}
 }
@@ -257,7 +258,31 @@ void Init()
 
 }
 
+
 //스테이지 초기화 설정 함수
+//플레이어 좌표 설정함수, 클리어 변수 설정(열쇠,자물쇠의 개수와 같음)
+void InitStagePlayer(int clearpoint, int x, int y)	//clearpoint, x,y좌표
+{
+	g_stPlayer.x = x;
+	g_stPlayer.y = y;
+	g_stPlayer.bActive = true;
+	g_stPlayer.clearpoint = clearpoint;
+}
+//열쇠 좌표 설정함수
+void InitStageKey(int i,int x, int y)	//몇번째 key, x,y좌표
+{
+	g_stKey[i].x = x;
+	g_stKey[i].y = y;
+	g_stKey[i].bActive = true;
+}
+//자물쇠 좌표 설정함수
+void InitStageLock(int i, int x, int y)	//몇번째 Lock, x,y좌표
+{
+	g_stLock[i].x = x;
+	g_stLock[i].y = y;
+	g_stLock[i].bActive = true;
+}
+//각스테이지 초기화
 void InitStage()
 {
 	//각 스테이지 초기화
@@ -265,49 +290,21 @@ void InitStage()
 	if (stage_bActive[0])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 4;
-		g_stPlayer.y = 4;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 4;
+		InitStagePlayer(4, 4, 4);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 3;
-		g_stKey[0].y = 3;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 3;
-		g_stKey[1].y = 4;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 4;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 5;
-		g_stKey[3].y = 3;
-		g_stKey[3].bActive = true;
+		InitStageKey(0, 3, 3);
+		InitStageKey(1, 3, 4);
+		InitStageKey(2, 4, 5);
+		InitStageKey(3, 5, 3);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 4;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 3;
-		g_stLock[1].y = 1;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 4;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 6;
-		g_stLock[3].y = 3;
-		g_stLock[3].bActive = true;
+		InitStageLock(0, 1, 4);
+		InitStageLock(1, 3, 1);
+		InitStageLock(2, 4, 6);
+		InitStageLock(3, 6, 3);
 
 		//스테이지 벽 좌표 설정
-
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
@@ -341,39 +338,18 @@ void InitStage()
 	if (stage_bActive[1])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 1;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 3;
+		InitStagePlayer(3, 1, 1);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 3;
-		g_stKey[1].y = 2;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 3;
-		g_stKey[2].bActive = true;
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 3, 2);
+		InitStageKey(2, 2, 3);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 7;
-		g_stLock[0].y = 3;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 7;
-		g_stLock[1].y = 4;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 7;
-		g_stLock[2].y = 5;
-		g_stLock[2].bActive = true;
-
+		InitStageLock(0, 7, 3);
+		InitStageLock(1, 7, 4);
+		InitStageLock(2, 7, 5);
+		
 		//스테이지 벽 좌표 설정
 		stage[0][0] = { 1 };
 		stage[0][1] = { 1 };
@@ -419,47 +395,19 @@ void InitStage()
 	if (stage_bActive[2])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 2;
-		g_stPlayer.y = 3;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 4;
+		InitStagePlayer(4, 2, 3);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 4;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 6;
-		g_stKey[2].y = 4;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 7;
-		g_stKey[3].y = 3;
-		g_stKey[3].bActive = true;
-
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 4, 3);
+		InitStageKey(2, 6, 4);
+		InitStageKey(3, 7, 3);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 2;
-		g_stLock[0].y = 4;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 2;
-		g_stLock[1].y = 5;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 3;
-		g_stLock[2].y = 4;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 5;
-		g_stLock[3].bActive = true;
+		InitStageLock(0, 2, 4);
+		InitStageLock(1, 2, 5);
+		InitStageLock(2, 3, 4);
+		InitStageLock(3, 3, 5);
 
 		//스테이지 벽 좌표 설정
 		stage[0][2] = { 1 };
@@ -502,56 +450,22 @@ void InitStage()
 	if (stage_bActive[3])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(5, 1, 2);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
-
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 2, 3);
+		InitStageKey(2, 2, 5);
+		InitStageKey(3, 3, 4);
+		InitStageKey(4, 3, 6);
+	
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 1, 5);
+		InitStageLock(1, 1, 6);
+		InitStageLock(2, 2, 6);
+		InitStageLock(3, 3, 6);
+		InitStageLock(3, 4, 6);
+		
 		//스테이지 벽 좌표 설정
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
@@ -584,39 +498,18 @@ void InitStage()
 	if (stage_bActive[4])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 2;
-		g_stPlayer.y = 1;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 3;
+		InitStagePlayer(3, 2, 1);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 3;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 5;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 5;
-		g_stKey[2].y = 6;
-		g_stKey[2].bActive = true;
+		InitStageKey(0, 3, 2);
+		InitStageKey(1, 2, 5);
+		InitStageKey(2, 5, 6);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 4;
-		g_stLock[0].bActive = true;
+		InitStageLock(0, 1, 4);
+		InitStageLock(1, 1, 5);
+		InitStageLock(2, 1, 6);
 
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 5;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 1;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-		
 		//스테이지 벽 좌표 설정
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
@@ -657,56 +550,22 @@ void InitStage()
 	if (stage_bActive[5])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 8;
-		g_stPlayer.y = 1;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(5, 8, 1);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 3;
-		g_stKey[0].y = 3;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 4;
-		g_stKey[1].y = 4;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 4;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 5;
-		g_stKey[3].y = 3;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 7;
-		g_stKey[4].y = 3;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 3, 3);
+		InitStageKey(1, 4, 4);
+		InitStageKey(2, 4, 5);
+		InitStageKey(3, 5, 3);
+		InitStageKey(4, 7, 3);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 6;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 2;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 3;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 4;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 5;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 1, 6);
+		InitStageLock(1, 2, 6);
+		InitStageLock(2, 3, 6);
+		InitStageLock(3, 4, 6);
+		InitStageLock(4, 5, 6);
+		
 		//스테이지 벽 좌표 설정
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
@@ -751,56 +610,22 @@ void InitStage()
 	if (stage_bActive[6])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 8;
-		g_stPlayer.y = 3;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(5, 8, 3);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 3;
-		g_stKey[0].y = 3;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 4;
-		g_stKey[1].y = 2;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 4;
-		g_stKey[2].y = 4;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 5;
-		g_stKey[3].y = 3;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 6;
-		g_stKey[4].y = 4;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 3, 3);
+		InitStageKey(1, 4, 2);
+		InitStageKey(2, 4, 4);
+		InitStageKey(3, 5, 3);
+		InitStageKey(4, 6, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 3;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 4;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 2;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 2;
-		g_stLock[3].y = 3;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 2;
-		g_stLock[4].y = 4;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 1, 3);
+		InitStageLock(1, 1, 4);
+		InitStageLock(2, 2, 2);
+		InitStageLock(3, 2, 3);
+		InitStageLock(4, 2, 4);
+				
 		//스테이지 벽 좌표 설정
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
@@ -839,63 +664,24 @@ void InitStage()
 	if (stage_bActive[7])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 8;
-		g_stPlayer.y = 7;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 6;
+		InitStagePlayer(6, 8, 7);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 3;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 6;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 5;
-		g_stKey[2].y = 2;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 5;
-		g_stKey[3].y = 6;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 8;
-		g_stKey[4].y = 3;
-		g_stKey[4].bActive = true;
-
-		g_stKey[5].x = 8;
-		g_stKey[5].y = 6;
-		g_stKey[5].bActive = true;
-
+		InitStageKey(0, 2, 3);
+		InitStageKey(1, 2, 6);
+		InitStageKey(2, 5, 2);
+		InitStageKey(3, 5, 6);
+		InitStageKey(4, 8, 3);
+		InitStageKey(5, 8, 6);
+	
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 4;
-		g_stLock[0].y = 4;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 4;
-		g_stLock[1].y = 5;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 5;
-		g_stLock[2].y = 4;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 5;
-		g_stLock[3].y = 5;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 6;
-		g_stLock[4].y = 4;
-		g_stLock[4].bActive = true;
-
-		g_stLock[5].x = 6;
-		g_stLock[5].y = 5;
-		g_stLock[5].bActive = true;
-
+		InitStageLock(0, 4, 4);
+		InitStageLock(1, 4, 5);
+		InitStageLock(2, 5, 4);
+		InitStageLock(3, 5, 5);
+		InitStageLock(4, 6, 4);
+		InitStageLock(5, 6, 5);
+	
 		//스테이지 벽 좌표 설정
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
@@ -948,55 +734,21 @@ void InitStage()
 	if (stage_bActive[8])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 3;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(5, 1, 3);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 4;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 3;
-		g_stKey[1].y = 2;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 3;
-		g_stKey[2].y = 3;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 4;
-		g_stKey[3].y = 2;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 5;
-		g_stKey[4].y = 2;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 4);
+		InitStageKey(1, 3, 2);
+		InitStageKey(2, 3, 3);
+		InitStageKey(3, 4, 2);
+		InitStageKey(4, 5, 2);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 3;
-		g_stLock[0].y = 4;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 4;
-		g_stLock[1].y = 3;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 4;
-		g_stLock[2].y = 4;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 5;
-		g_stLock[3].y = 3;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 5;
-		g_stLock[4].y = 4;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 3, 4);
+		InitStageLock(1, 4, 3);
+		InitStageLock(2, 4, 4);
+		InitStageLock(3, 5, 3);
+		InitStageLock(4, 5, 4);
 
 		//스테이지 벽 좌표 설정
 		stage[0][2] = { 1 };
@@ -1031,47 +783,20 @@ void InitStage()
 	if (stage_bActive[9])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 8;
-		g_stPlayer.y = 4;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 4;
+		InitStagePlayer(4, 8, 4);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 3, 3);
+		InitStageKey(2, 8, 2);
+		InitStageKey(3, 9, 3);
 
-		g_stKey[1].x = 3;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 8;
-		g_stKey[2].y = 2;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 9;
-		g_stKey[3].y = 3;
-		g_stKey[3].bActive = true;
-	   
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 4;
-		g_stLock[0].y = 3;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 5;
-		g_stLock[1].y = 3;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 6;
-		g_stLock[2].y = 3;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 7;
-		g_stLock[3].y = 3;
-		g_stLock[3].bActive = true;
-
+		InitStageLock(0, 4, 3);
+		InitStageLock(1, 5, 3);
+		InitStageLock(2, 6, 3);
+		InitStageLock(3, 7, 3);
+			   
 		//스테이지 벽 좌표 설정
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
@@ -1112,304 +837,174 @@ void InitStage()
 		stage[11][4] = { 1 };
 	}
 	//스테이지 11 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[10])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(4, 5, 1);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 3, 2);
+		InitStageKey(1, 4, 3);
+		InitStageKey(2, 5, 4);
+		InitStageKey(3, 4, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 4, 2);
+		InitStageLock(1, 3, 3);
+		InitStageLock(2, 5, 3);
+		InitStageLock(3, 4, 4);
+		
 		//스테이지 벽 좌표 설정
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
-		stage[0][5] = { 1 };
-		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
-		stage[1][0] = { 1 };
 		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
 		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][4] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
-		stage[3][7] = { 1 };
+		stage[3][6] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
-		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][2] = { 1 };
+		stage[6][5] = { 1 };
+		stage[6][6] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
 	}
 	//스테이지 12 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[11])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(4, 3, 6);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 3, 4);
+		InitStageKey(1, 4, 3);
+		InitStageKey(2, 4, 5);
+		InitStageKey(3, 5, 5);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 3, 1);
+		InitStageLock(1, 4, 1);
+		InitStageLock(2, 4, 2);
+		InitStageLock(3, 5, 3);
+		
 		//스테이지 벽 좌표 설정
-		stage[0][1] = { 1 };
-		stage[0][2] = { 1 };
-		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
 		stage[0][7] = { 1 };
-		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
+		stage[1][2] = { 1 };
 		stage[1][3] = { 1 };
 		stage[1][4] = { 1 };
 		stage[1][7] = { 1 };
 		stage[2][0] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][2] = { 1 };
 		stage[2][7] = { 1 };
 		stage[3][0] = { 1 };
+		stage[3][5] = { 1 };
 		stage[3][7] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
 		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
-		stage[5][6] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][1] = { 1 };
+		stage[5][2] = { 1 };
 		stage[5][7] = { 1 };
+		stage[6][2] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][4] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
 	}
 	//스테이지 13 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[12])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(6, 1, 3);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 2, 3);
+		InitStageKey(2, 2, 4);
+		InitStageKey(3, 5, 2);
+		InitStageKey(4, 5, 4);
+		InitStageKey(5, 4, 3);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 3, 2);
+		InitStageLock(1, 3, 3);
+		InitStageLock(2, 3, 4);
+		InitStageLock(3, 4, 2);
+		InitStageLock(4, 4, 3);
+		InitStageLock(5, 4, 4);
 
 		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
 		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
+		stage[1][6] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
-		stage[3][7] = { 1 };
+		stage[3][1] = { 1 };
+		stage[3][5] = { 1 };
+		stage[3][6] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
-		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][6] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][6] = { 1 };
 	}
 	//스테이지 14 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[13])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(6, 4, 5);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 2, 4);
+		InitStageKey(2, 3, 4);
+		InitStageKey(3, 4, 2);
+		InitStageKey(4, 5, 2);
+		InitStageKey(5, 5, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 1, 3);
+		InitStageLock(1, 2, 3);
+		InitStageLock(2, 3, 3);
+		InitStageLock(3, 4, 3);
+		InitStageLock(4, 5, 3);
+		InitStageLock(5, 6, 3);
 
 		//스테이지 벽 좌표 설정
 		stage[0][1] = { 1 };
@@ -1417,411 +1012,295 @@ void InitStage()
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
-		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
 		stage[1][0] = { 1 };
 		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
+		stage[1][5] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
-		stage[3][7] = { 1 };
+		stage[3][6] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
-		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][5] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][5] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
 	}
 	//스테이지 15 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[14])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(6, 6, 7);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 4, 2);
+		InitStageKey(1, 4, 3);
+		InitStageKey(2, 4, 5);
+		InitStageKey(3, 5, 4);
+		InitStageKey(4, 6, 5);
+		InitStageKey(5, 7, 6);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
-
+		InitStageLock(0, 1, 4);
+		InitStageLock(1, 1, 5);
+		InitStageLock(2, 2, 4);
+		InitStageLock(3, 2, 5);
+		InitStageLock(4, 3, 4);
+		InitStageLock(5, 3, 5);
+	
 		//스테이지 벽 좌표 설정
-		stage[0][1] = { 1 };
-		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
-		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
 		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
+		stage[1][6] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][2] = { 1 };
+		stage[2][3] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
+		stage[3][6] = { 1 };
 		stage[3][7] = { 1 };
+		stage[3][8] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
-		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
+		stage[4][8] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][5] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[5][8] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][8] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][8] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][8] = { 1 };
+		stage[9][1] = { 1 };
+		stage[9][2] = { 1 };
+		stage[9][3] = { 1 };
+		stage[9][4] = { 1 };
+		stage[9][5] = { 1 };
+		stage[9][6] = { 1 };
+		stage[9][7] = { 1 };
+		stage[9][8] = { 1 };
 	}
 	//스테이지 16 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[15])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(4, 3, 5);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 2);
+		InitStageKey(1, 3, 2);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 6, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 4, 3);
+		InitStageLock(1, 4, 4);
+		InitStageLock(2, 5, 3);
+		InitStageLock(3, 5, 4);
 
 		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
-		stage[0][5] = { 1 };
-		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
 		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
 		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][6] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
-		stage[3][7] = { 1 };
+		stage[3][3] = { 1 };
+		stage[3][6] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
-		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][1] = { 1 };
+		stage[5][2] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[6][2] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][6] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][6] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][6] = { 1 };
 	}
 	//스테이지 17 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[16])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(6, 7, 7);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 4, 3);
+		InitStageKey(1, 4, 5);
+		InitStageKey(2, 5, 2);
+		InitStageKey(3, 5, 4);
+		InitStageKey(4, 7, 3);
+		InitStageKey(5, 7, 5);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 6, 2);
+		InitStageLock(1, 7, 1);
+		InitStageLock(2, 7, 2);
+		InitStageLock(3, 7, 3);
+		InitStageLock(4, 8, 2);
+		InitStageLock(5, 8, 3);
 
 		//스테이지 벽 좌표 설정
-		stage[0][1] = { 1 };
-		stage[0][2] = { 1 };
-		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
 		stage[0][7] = { 1 };
-		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
+		stage[1][2] = { 1 };
 		stage[1][3] = { 1 };
 		stage[1][4] = { 1 };
 		stage[1][7] = { 1 };
 		stage[2][0] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][2] = { 1 };
 		stage[2][7] = { 1 };
 		stage[3][0] = { 1 };
+		stage[3][4] = { 1 };
 		stage[3][7] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
+		stage[4][4] = { 1 };
+		stage[4][6] = { 1 };
 		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
-		stage[5][6] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][4] = { 1 };
+		stage[6][7] = { 1 };
+		stage[6][8] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][8] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][8] = { 1 };
+		stage[9][0] = { 1 };
+		stage[9][1] = { 1 };
+		stage[9][2] = { 1 };
+		stage[9][3] = { 1 };
+		stage[9][4] = { 1 };
+		stage[9][5] = { 1 };
+		stage[9][6] = { 1 };
+		stage[9][7] = { 1 };
+		stage[9][8] = { 1 };
 	}
 	//스테이지 18 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[17])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(7, 5, 6);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 4);
+		InitStageKey(1, 3, 3);
+		InitStageKey(2, 3, 4);
+		InitStageKey(3, 5, 3);
+		InitStageKey(4, 6, 2);
+		InitStageKey(5, 7, 3);
+		InitStageKey(6, 7, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 2, 1);
+		InitStageLock(1, 3, 1);
+		InitStageLock(2, 3, 2);
+		InitStageLock(3, 4, 1);
+		InitStageLock(4, 4, 2);
+		InitStageLock(5, 5, 1);
+		InitStageLock(6, 5, 2);
 
 		//스테이지 벽 좌표 설정
-		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
-		stage[0][7] = { 1 };
 		stage[1][0] = { 1 };
 		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
-		stage[1][7] = { 1 };
+		stage[1][2] = { 1 };
+		stage[1][6] = { 1 };
 		stage[2][0] = { 1 };
-		stage[2][7] = { 1 };
+		stage[2][2] = { 1 };
+		stage[2][6] = { 1 };
 		stage[3][0] = { 1 };
+		stage[3][6] = { 1 };
 		stage[3][7] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
 		stage[4][3] = { 1 };
 		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][5] = { 1 };
-		stage[5][6] = { 1 };
 		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][4] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][6] = { 1 };
+		stage[9][2] = { 1 };
+		stage[9][3] = { 1 };
+		stage[9][4] = { 1 };
+		stage[9][5] = { 1 };
+		stage[9][6] = { 1 };
 	}
 	//스테이지 19 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[18])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(8, 4, 6);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 3);
+		InitStageKey(1, 2, 5);
+		InitStageKey(2, 3, 1);
+		InitStageKey(3, 3, 3);
+		InitStageKey(4, 3, 4);
+		InitStageKey(5, 3, 5);
+		InitStageKey(6, 4, 3);
+		InitStageKey(7, 4, 5);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 1, 1);
+		InitStageLock(1, 1, 2);
+		InitStageLock(2, 2, 1);
+		InitStageLock(3, 2, 2);
+		InitStageLock(4, 4, 1);
+		InitStageLock(5, 4, 2);
+		InitStageLock(6, 5, 1);
+		InitStageLock(7, 5, 2);
 
 		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
 		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
@@ -1830,106 +1309,402 @@ void InitStage()
 		stage[0][6] = { 1 };
 		stage[0][7] = { 1 };
 		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
 		stage[1][7] = { 1 };
 		stage[2][0] = { 1 };
 		stage[2][7] = { 1 };
 		stage[3][0] = { 1 };
+		stage[3][2] = { 1 };
+		stage[3][6] = { 1 };
 		stage[3][7] = { 1 };
 		stage[4][0] = { 1 };
-		stage[4][1] = { 1 };
-		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
 		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
-		stage[5][5] = { 1 };
-		stage[5][6] = { 1 };
+		stage[5][0] = { 1 };
 		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][2] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][4] = { 1 };
+		stage[6][5] = { 1 };
+		stage[6][6] = { 1 };
+		stage[6][7] = { 1 };
 	}
 	//스테이지 20 초기화
-	if (stage_bActive[3])
+	if (stage_bActive[19])
 	{
 		//플레이어 좌표 설정
-		g_stPlayer.x = 1;
-		g_stPlayer.y = 2;
-		g_stPlayer.bActive = true;
-
-		//클리어 변수 설정 (열쇠,자물쇠의 개수와 같음)
-		g_stPlayer.clearpoint = 5;
+		InitStagePlayer(7, 1, 5);
 
 		//열쇠 좌표 설정
-		g_stKey[0].x = 2;
-		g_stKey[0].y = 2;
-		g_stKey[0].bActive = true;
-
-		g_stKey[1].x = 2;
-		g_stKey[1].y = 3;
-		g_stKey[1].bActive = true;
-
-		g_stKey[2].x = 2;
-		g_stKey[2].y = 5;
-		g_stKey[2].bActive = true;
-
-		g_stKey[3].x = 3;
-		g_stKey[3].y = 4;
-		g_stKey[3].bActive = true;
-
-		g_stKey[4].x = 3;
-		g_stKey[4].y = 6;
-		g_stKey[4].bActive = true;
-
+		InitStageKey(0, 2, 4);
+		InitStageKey(1, 3, 5);
+		InitStageKey(2, 4, 4);
+		InitStageKey(3, 5, 5);
+		InitStageKey(4, 6, 3);
+		InitStageKey(5, 7, 4);
+		InitStageKey(6, 8, 4);
 
 		//자물쇠 좌표 설정
-		g_stLock[0].x = 1;
-		g_stLock[0].y = 5;
-		g_stLock[0].bActive = true;
-
-		g_stLock[1].x = 1;
-		g_stLock[1].y = 6;
-		g_stLock[1].bActive = true;
-
-		g_stLock[2].x = 2;
-		g_stLock[2].y = 6;
-		g_stLock[2].bActive = true;
-
-		g_stLock[3].x = 3;
-		g_stLock[3].y = 6;
-		g_stLock[3].bActive = true;
-
-		g_stLock[4].x = 4;
-		g_stLock[4].y = 6;
-		g_stLock[4].bActive = true;
+		InitStageLock(0, 4, 2);
+		InitStageLock(1, 5, 1);
+		InitStageLock(2, 5, 2);
+		InitStageLock(3, 6, 1);
+		InitStageLock(4, 6, 2);
+		InitStageLock(5, 7, 1);
+		InitStageLock(6, 7, 2);
 
 		//스테이지 벽 좌표 설정
-		stage[0][1] = { 1 };
 		stage[0][2] = { 1 };
 		stage[0][3] = { 1 };
 		stage[0][4] = { 1 };
 		stage[0][5] = { 1 };
 		stage[0][6] = { 1 };
 		stage[0][7] = { 1 };
-		stage[1][0] = { 1 };
-		stage[1][1] = { 1 };
-		stage[1][3] = { 1 };
-		stage[1][4] = { 1 };
+		stage[1][2] = { 1 };
 		stage[1][7] = { 1 };
+		stage[2][2] = { 1 };
+		stage[2][7] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][1] = { 1 };
+		stage[3][2] = { 1 };
+		stage[3][3] = { 1 };
+		stage[3][7] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][3] = { 1 };
+		stage[4][6] = { 1 };
+		stage[4][7] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][3] = { 1 };
+		stage[5][6] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][6] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][7] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][7] = { 1 };
+		stage[9][3] = { 1 };
+		stage[9][7] = { 1 };
+		stage[10][3] = { 1 };
+		stage[10][4] = { 1 };
+		stage[10][5] = { 1 };
+		stage[10][6] = { 1 };
+		stage[10][7] = { 1 };
+	}
+	//스테이지 21 초기화
+	if (stage_bActive[20])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(6, 7, 7);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 6);
+		InitStageKey(1, 3, 2);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 5, 4);
+		InitStageKey(4, 5, 6);
+		InitStageKey(5, 6, 5);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 2, 3);
+		InitStageLock(1, 2, 4);
+		InitStageLock(2, 3, 3);
+		InitStageLock(3, 3, 4);
+		InitStageLock(4, 4, 3);
+		InitStageLock(5, 4, 4);
+
+		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[1][0] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][6] = { 1 };
+		stage[1][7] = { 1 };
+		stage[1][8] = { 1 };
 		stage[2][0] = { 1 };
+		stage[2][2] = { 1 };
+		stage[2][8] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][5] = { 1 };
+		stage[3][8] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][5] = { 1 };
+		stage[4][7] = { 1 };
+		stage[4][8] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][3] = { 1 };
+		stage[5][8] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][8] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][8] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][6] = { 1 };
+		stage[8][7] = { 1 };
+		stage[8][8] = { 1 };
+	}
+	//스테이지 22 초기화
+	if (stage_bActive[21])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(6, 8, 3);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 3);
+		InitStageKey(1, 3, 4);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 4, 4);
+		InitStageKey(4, 6, 2);
+		InitStageKey(5, 6, 3);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 3, 6);
+		InitStageLock(1, 4, 6);
+		InitStageLock(2, 5, 5);
+		InitStageLock(3, 5, 6);
+		InitStageLock(4, 6, 5);
+		InitStageLock(5, 6, 6);
+
+		//스테이지 벽 좌표 설정
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[1][1] = { 1 };
+		stage[1][4] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][4] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][6] = { 1 };
 		stage[2][7] = { 1 };
 		stage[3][0] = { 1 };
 		stage[3][7] = { 1 };
 		stage[4][0] = { 1 };
+		stage[4][7] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][4] = { 1 };
+		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][4] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][4] = { 1 };
+		stage[9][1] = { 1 };
+		stage[9][2] = { 1 };
+		stage[9][3] = { 1 };
+		stage[9][4] = { 1 };
+	}
+	//스테이지 23 초기화
+	if (stage_bActive[22])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(6, 1, 8);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 6);
+		InitStageKey(1, 3, 7);
+		InitStageKey(2, 4, 3);
+		InitStageKey(3, 6, 5);
+		InitStageKey(4, 7, 6);
+		InitStageKey(5, 8, 6);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 5, 2);
+		InitStageLock(1, 5, 3);
+		InitStageLock(2, 6, 1);
+		InitStageLock(3, 6, 2);
+		InitStageLock(4, 6, 3);
+		InitStageLock(5, 6, 4);
+
+		//스테이지 벽 좌표 설정
+		stage[0][5] = { 1 };
+		stage[0][6] = { 1 };
+		stage[0][7] = { 1 };
+		stage[0][8] = { 1 };
+		stage[0][9] = { 1 };
+		stage[1][1] = { 1 };
+		stage[1][2] = { 1 };
+		stage[1][3] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][9] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][7] = { 1 };
+		stage[2][9] = { 1 };
+		stage[3][1] = { 1 };
+		stage[3][9] = { 1 };
 		stage[4][1] = { 1 };
 		stage[4][2] = { 1 };
-		stage[4][3] = { 1 };
+		stage[4][4] = { 1 };
+		stage[4][5] = { 1 };
 		stage[4][7] = { 1 };
-		stage[5][3] = { 1 };
-		stage[5][4] = { 1 };
+		stage[4][8] = { 1 };
+		stage[4][9] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][1] = { 1 };
 		stage[5][5] = { 1 };
+		stage[5][8] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][8] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][7] = { 1 };
+		stage[7][8] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][8] = { 1 };
+		stage[9][0] = { 1 };
+		stage[9][4] = { 1 };
+		stage[9][8] = { 1 };
+		stage[10][0] = { 1 };
+		stage[10][1] = { 1 };
+		stage[10][2] = { 1 };
+		stage[10][3] = { 1 };
+		stage[10][4] = { 1 };
+		stage[10][5] = { 1 };
+		stage[10][6] = { 1 };
+		stage[10][7] = { 1 };
+		stage[10][8] = { 1 };
+	}
+	//스테이지 24 초기화
+	if (stage_bActive[23])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(6, 4, 5);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 3);
+		InitStageKey(1, 2, 4);
+		InitStageKey(2, 3, 2);
+		InitStageKey(3, 4, 4);
+		InitStageKey(4, 6, 3);
+		InitStageKey(5, 6, 4);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 1, 1);
+		InitStageLock(1, 2, 1);
+		InitStageLock(2, 3, 1);
+		InitStageLock(3, 4, 1);
+		InitStageLock(4, 5, 1);
+		InitStageLock(5, 6, 1);
+
+		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[1][0] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][6] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][6] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][6] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][3] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][2] = { 1 };
 		stage[5][6] = { 1 };
-		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][6] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][6] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][6] = { 1 };
+	}
+	//스테이지 25 초기화
+	if (stage_bActive[24])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(5, 2, 3);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 3, 3);
+		InitStageKey(1, 3, 4);
+		InitStageKey(2, 6, 2);
+		InitStageKey(3, 6, 4);
+		InitStageKey(4, 9, 3);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 4, 3);
+		InitStageLock(1, 6, 1);
+		InitStageLock(2, 6, 3);
+		InitStageLock(3, 6, 5);
+		InitStageLock(4, 8, 3);
+
+		//스테이지 벽 좌표 설정
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[1][1] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][6] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][6] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][6] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][2] = { 1 };
+		stage[4][4] = { 1 };
+		stage[4][6] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][2] = { 1 };
+		stage[5][4] = { 1 };
+		stage[5][6] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][6] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][6] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][6] = { 1 };
+		stage[9][0] = { 1 };
+		stage[9][6] = { 1 };
+		stage[10][0] = { 1 };
+		stage[10][3] = { 1 };
+		stage[10][4] = { 1 };
+		stage[10][5] = { 1 };
+		stage[10][6] = { 1 };
+		stage[11][0] = { 1 };
+		stage[11][1] = { 1 };
+		stage[11][2] = { 1 };
+		stage[11][3] = { 1 };
 	}
 	
 }
@@ -2102,8 +1877,8 @@ void InputProcessor()
 		stage_bActive[stagephase] = false;
 		stagestate = false;
 		stagephase++;
-		if (stagephase > STAGE_MAX)
-			stagephase = STAGE_MAX;
+		if (stagephase >= STAGE_MAX)
+			stagephase = STAGE_MAX-1;
 	}
 
 	//이전 스테이지
@@ -2248,7 +2023,7 @@ void Ending()
 		}
 	}
 
-	//q로 나갔을 때
+	//게임이 종료시켰을 때
 	while (1) {
 		system("cls");
 		GotoXY(2, 2);
@@ -2256,7 +2031,7 @@ void Ending()
 		GotoXY(2, 4);
 		printf("#Push Push Game");
 		GotoXY(2, 6);
-		printf("#You Clear Stage %d",stagephase);
+		printf("#You Clear Stage %d", stagephase);
 		GotoXY(2, 8);
 		printf("\n");
 		Sleep(50);
@@ -2270,12 +2045,12 @@ int main() {
 	while (gamestate)
 	{
 		Init();
-	
+
 		InitStage();
-		
+
 		//게임시작
 		while (stagestate)
-		{	
+		{
 			//화면지우기
 			system("cls");
 
@@ -2296,11 +2071,10 @@ int main() {
 
 			//해당스테이지 클리어 과정
 			ClearStage();
-		
+
 			//화면전환 속도
 			Sleep(70);
 		}
-		
 	}
 
 	Ending();

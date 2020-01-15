@@ -7,7 +7,7 @@
 #define WIDTH 60
 #define LENGTH 20
 
-#define STAGE_MAX 25
+#define STAGE_MAX 30
 
 //배경색, 텍스트색 표현
 int BackColor = 0;
@@ -207,7 +207,7 @@ void StartMenu()
 		GotoXY(2, 2);
 		printf("#Push Push Game");
 		GotoXY(2, 4);
-		printf("#Enter Stage: ");
+		printf("#Enter Stage(1~30): ");
 
 		//스테이지를 입력받음, stagephase는 0부터 시작하므로 -1을 해준 것
 		scanf("%d", &stagephase);
@@ -1742,7 +1742,319 @@ void InitStage()
 		stage[11][2] = { 1 };
 		stage[11][3] = { 1 };
 	}
-	
+	//스테이지 26 초기화
+	if (stage_bActive[25])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(5, 7, 1);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 3, 2);
+		InitStageKey(1, 3, 5);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 4, 4);
+		InitStageKey(4, 5, 2);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 1, 3);
+		InitStageLock(1, 4, 1);
+		InitStageLock(2, 4, 3);
+		InitStageLock(3, 4, 5);
+		InitStageLock(4, 7, 3);
+
+		//스테이지 벽 좌표 설정
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[0][5] = { 1 };
+		stage[0][6] = { 1 };
+		stage[1][1] = { 1 };
+		stage[1][6] = { 1 };
+		stage[2][1] = { 1 };
+		stage[2][3] = { 1 };
+		stage[2][6] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][1] = { 1 };
+		stage[3][3] = { 1 };
+		stage[3][6] = { 1 };
+		stage[3][7] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][7] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][3] = { 1 };
+		stage[5][5] = { 1 };
+		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+	}
+	//스테이지 27 초기화
+	if (stage_bActive[26])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(5, 4, 6);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 4);
+		InitStageKey(1, 3, 5);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 5, 3);
+		InitStageKey(4, 5, 4);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 2, 1);
+		InitStageLock(1, 2, 2);
+		InitStageLock(2, 4, 1);
+		InitStageLock(3, 5, 1);
+		InitStageLock(4, 5, 2);
+
+		//스테이지 벽 좌표 설정
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[0][5] = { 1 };
+		stage[0][6] = { 1 };
+		stage[0][7] = { 1 };
+		stage[1][0] = { 1 };
+		stage[1][1] = { 1 };
+		stage[1][2] = { 1 };
+		stage[1][3] = { 1 };
+		stage[1][7] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][3] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][7] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][7] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][5] = { 1 };
+		stage[4][7] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][5] = { 1 };
+		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][1] = { 1 };
+		stage[6][2] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
+	}
+	//스테이지 28 초기화
+	if (stage_bActive[27])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(5, 5, 4);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 5);
+		InitStageKey(1, 3, 3);
+		InitStageKey(2, 4, 2);
+		InitStageKey(3, 6, 2);
+		InitStageKey(4, 6, 5);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 3, 3);
+		InitStageLock(1, 4, 3);
+		InitStageLock(2, 4, 4);
+		InitStageLock(3, 6, 4);
+		InitStageLock(4, 6, 5);
+
+		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[0][5] = { 1 };
+		stage[0][6] = { 1 };
+		stage[0][7] = { 1 };
+		stage[0][8] = { 1 };
+		stage[1][0] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[1][8] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][2] = { 1 };
+		stage[2][8] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][4] = { 1 };
+		stage[3][5] = { 1 };
+		stage[3][8] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][1] = { 1 };
+		stage[4][5] = { 1 };
+		stage[4][7] = { 1 };
+		stage[4][8] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][1] = { 1 };
+		stage[5][3] = { 1 };
+		stage[5][5] = { 1 };
+		stage[5][7] = { 1 };
+		stage[5][8] = { 1 };
+		stage[5][9] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][9] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][5] = { 1 };
+		stage[7][7] = { 1 };
+		stage[7][9] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][9] = { 1 };
+		stage[9][5] = { 1 };
+		stage[9][6] = { 1 };
+		stage[9][7] = { 1 };
+		stage[9][8] = { 1 };
+		stage[9][9] = { 1 };
+	}
+	//스테이지 29 초기화
+	if (stage_bActive[28])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(6, 5, 1);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 2, 5);
+		InitStageKey(1, 4, 2);
+		InitStageKey(2, 4, 5);
+		InitStageKey(3, 5, 2);
+		InitStageKey(4, 6, 2);
+		InitStageKey(5, 6, 4);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 3, 5);
+		InitStageLock(1, 4, 4);
+		InitStageLock(2, 4, 6);
+		InitStageLock(3, 5, 5);
+		InitStageLock(4, 6, 6);
+		InitStageLock(5, 7, 5);
+
+		//스테이지 벽 좌표 설정
+		stage[0][3] = { 1 };
+		stage[0][4] = { 1 };
+		stage[0][5] = { 1 };
+		stage[0][6] = { 1 };
+		stage[0][7] = { 1 };
+		stage[1][3] = { 1 };
+		stage[1][7] = { 1 };
+		stage[2][3] = { 1 };
+		stage[2][7] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][1] = { 1 };
+		stage[3][2] = { 1 };
+		stage[3][3] = { 1 };
+		stage[3][6] = { 1 };
+		stage[3][7] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][7] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][4] = { 1 };
+		stage[5][6] = { 1 };
+		stage[5][7] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][7] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][1] = { 1 };
+		stage[7][2] = { 1 };
+		stage[7][3] = { 1 };
+		stage[7][4] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][7] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][5] = { 1 };
+		stage[8][6] = { 1 };
+	}
+	//스테이지 30 초기화
+	if (stage_bActive[29])
+	{
+		//플레이어 좌표 설정
+		InitStagePlayer(8, 9, 8);
+
+		//열쇠 좌표 설정
+		InitStageKey(0, 3, 2);
+		InitStageKey(1, 3, 7);
+		InitStageKey(2, 4, 3);
+		InitStageKey(3, 5, 2);
+		InitStageKey(4, 5, 7);
+		InitStageKey(5, 6, 6);
+		InitStageKey(6, 7, 2);
+		InitStageKey(7, 7, 7);
+
+		//자물쇠 좌표 설정
+		InitStageLock(0, 3, 4);
+		InitStageLock(1, 3, 5);
+		InitStageLock(2, 4, 4);
+		InitStageLock(3, 4, 5);
+		InitStageLock(4, 6, 4);
+		InitStageLock(5, 6, 5);
+		InitStageLock(6, 7, 4);
+		InitStageLock(7, 7, 5);
+
+		//스테이지 벽 좌표 설정
+		stage[0][0] = { 1 };
+		stage[0][1] = { 1 };
+		stage[0][2] = { 1 };
+		stage[0][3] = { 1 };
+		stage[1][0] = { 1 };
+		stage[1][3] = { 1 };
+		stage[1][4] = { 1 };
+		stage[1][5] = { 1 };
+		stage[2][0] = { 1 };
+		stage[2][5] = { 1 };
+		stage[2][6] = { 1 };
+		stage[2][7] = { 1 };
+		stage[2][8] = { 1 };
+		stage[2][9] = { 1 };
+		stage[3][0] = { 1 };
+		stage[3][3] = { 1 };
+		stage[3][9] = { 1 };
+		stage[4][0] = { 1 };
+		stage[4][6] = { 1 };
+		stage[4][9] = { 1 };
+		stage[5][0] = { 1 };
+		stage[5][3] = { 1 };
+		stage[5][6] = { 1 };
+		stage[5][9] = { 1 };
+		stage[6][0] = { 1 };
+		stage[6][3] = { 1 };
+		stage[6][9] = { 1 };
+		stage[7][0] = { 1 };
+		stage[7][6] = { 1 };
+		stage[7][9] = { 1 };
+		stage[8][0] = { 1 };
+		stage[8][1] = { 1 };
+		stage[8][2] = { 1 };
+		stage[8][3] = { 1 };
+		stage[8][4] = { 1 };
+		stage[8][9] = { 1 };
+		stage[9][4] = { 1 };
+		stage[9][5] = { 1 };
+		stage[9][6] = { 1 };
+		stage[9][9] = { 1 };
+		stage[10][6] = { 1 };
+		stage[10][7] = { 1 };
+		stage[10][8] = { 1 };
+		stage[10][9] = { 1 };
+	}
 }
 
 //맵 출력함수 설정
